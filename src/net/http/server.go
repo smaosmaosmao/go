@@ -790,9 +790,9 @@ func (c *conn) readRequest(ctx context.Context) (w *response, err error) {
 		return nil, badRequestError("malformed Host header")
 	}
 	for k, vv := range req.Header {
-		if !httplex.ValidHeaderFieldName(k) {
-			return nil, badRequestError("invalid header name")
-		}
+		// if !httplex.ValidHeaderFieldName(k) {
+		// 	return nil, badRequestError("invalid header name")
+		// }
 		for _, v := range vv {
 			if !httplex.ValidHeaderFieldValue(v) {
 				return nil, badRequestError("invalid header value")
